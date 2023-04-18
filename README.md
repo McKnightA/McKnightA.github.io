@@ -42,7 +42,7 @@ The MAML algorithm can be summarized as follows:
 6. Use the gradient of the average loss with respect to the initial parameters to update the initial parameters.
 7. Repeat steps 2-6 for a fixed number of iterations.
 
-MAML has shown promising results in few-shot learning, where models are trained to quickly adapt to new tasks with only a few examples. MAML is also model-agnostic, which means that it can be used with a wide range of models, making it a versatile and widely applicable approach to meta-learning.
+MAML has shown promising results in few-shot learning, where models are trained to quickly adapt to new tasks with only a few examples. MAML is also model-agnostic, which means that it can be used with any model that is updated with a gradient descent based optimizer, making it a versatile and widely applicable approach to meta-learning.
 
 ## Evaluation
 
@@ -89,6 +89,30 @@ For the humanoid locomotion task, the goal was to train an agent to control the 
 The performance of MAML was compared to several baseline algorithms, including a regular reinforcement learning algorithm trained using policy gradient descent and a few-shot reinforcement learning algorithm called Reptile. The authors reported that MAML outperformed these baselines on both the 2D navigation and humanoid locomotion tasks, achieving higher average returns and faster adaptation to new environments and target speeds.
 
 ## Results
+### What are the results from the regression task evaluation?
+During meta-training, MAML was trained on a set of regression tasks, each corresponding to a different amplitude and phase of the sine wave. During meta-testing, MAML was tested on new regression tasks with different amplitudes and phases, where it was fine-tuned on a few input-output pairs and evaluated on its ability to predict the value of the sine wave at new input points. The performance of MAML was measured using the mean squared error (MSE) metric, which measures the average squared difference between the predicted values and the true values.
+
+The authors reported that MAML achieved significantly lower MSE compared to several baseline algorithms, including a regular neural network trained using SGD, a neural network trained using transfer learning, and a few-shot learning algorithm called Matching Networks. They also showed that MAML was able to learn a good initialization that could be fine-tuned quickly to new regression tasks with only a few input-output pairs. Overall, these results demonstrated that MAML was effective in adapting quickly to new regression problems with limited data.
+
+### What are the results from the classification task evaluation?
+MAML was evaluated on a classification task using the Omniglot dataset, which consists of 1623 different handwritten characters from 50 different alphabets. During meta-training, MAML was trained on a set of classification tasks, each corresponding to a different subset of characters from the Omniglot dataset. During meta-testing, MAML was tested on new classification tasks with different subsets of characters, where it was fine-tuned on a few examples from each class and evaluated on its ability to classify new examples correctly. The performance of MAML was measured using the mean classification accuracy metric. It was compared to many different meta learning techniques from prior literature. These prior techniques include MANN (no conv), siamese nets, matching nets, neural statistician, and memory modules. 
+
+Omniglot (Lake et al., 2011) 1-shot 5-shot 1-shot 5-shot
+MANN, no conv (Santoro et al., 2016) 82.8% 94.9% – –
+MAML, no conv (ours) 89.7 ± 1.1% 97.5 ± 0.6% – –
+Siamese nets (Koch, 2015) 97.3% 98.4% 88.2% 97.0%
+matching nets (Vinyals et al., 2016) 98.1% 98.9% 93.8% 98.5%
+neural statistician (Edwards & Storkey, 2017) 98.1% 99.5% 93.2% 98.1%
+memory mod. (Kaiser et al., 2017) 98.4% 99.6% 95.0% 98.6%
+MAML (ours) 98.7 ± 0.4% 99.9 ± 0.1% 95.8 ± 0.3% 98.9 ± 0.2%
+
+MAML was also evaluated on the mini-ImageNet dataset, which consists of 100 classes from the larger ImageNet dataset. During meta-training, MAML was trained on a set of classification tasks, each corresponding to a different subset of classes from the mini-ImageNet dataset. During meta-testing, MAML was tested on new classification tasks with different subsets of classes, where it was fine-tuned on a few examples from each class and evaluated on its ability to classify new examples correctly. The authors reported the mean classification accuracy.
+
+Algorithm	1-shot accuracy (%)	1-shot SEM	5-shot accuracy (%)	5-shot SEM
+MAML	48.7	1.84	63.1	0.92
+Matching Networks	43.6	0.78	55.3	0.69
+Prototypical Networks	49.4	0.78	68.2	0.66
+Relation Networks	50.4	0.82	65.3	0.70
 
 ## Discussion
 
