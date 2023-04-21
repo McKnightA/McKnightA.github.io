@@ -3,10 +3,10 @@
 ## Introduction
 
 ### What is meta-learning?
-Meta-learning is a subfield of machine learning that deals with the study of how to develop algorithms that learn how to learn. The goal of meta-learning is to develop algorithms that can quickly adapt to new tasks and domains by leveraging knowledge acquired from previous experiences. This is achieved by training the model on a set of meta-data that contains information about different data sets and learning tasks. The model then uses this information to adapt its learning process to the new data set or task. Meta-learning is particularly important in areas where data sets are limited or the cost of data collection is high. Meta-learning has applications in a wide range of fields, including natural language processing, computer vision, and robotics, among others.
+Meta-learning is a subfield of machine learning that deals with the study of how to develop algorithms that learn how to learn. The goal of meta-learning is to develop algorithms that can quickly adapt to new tasks and domains by leveraging knowledge acquired from previous tasks. This is achieved by training the model on a set of meta-data that contains information about different data sets and learning tasks. The model then uses this information to adapt its learning process to the new data set or task. Meta-learning is particularly important in areas where data sets are limited or the cost of data collection is high. Meta-learning has applications in a wide range of fields, including natural language processing, computer vision, and robotics, among others.
 
 ### Why should anyone care about meta-learning?
-Meta-learning is an important area of research because it has the potential to significantly improve the performance of machine learning algorithms and make them more efficient in adapting to new tasks and domains. Here are some reasons why you should care about meta-learning:
+Meta-learning is an important area of research because it has the potential to significantly improve the performance of machine learning algorithms and make them more efficient in adapting to new tasks and domains. Here are some reasons to care about meta-learning:
 
 Faster learning: Meta-learning allows machine learning algorithms to learn faster from new data sets and tasks, as they can leverage the knowledge acquired from previous experiences. This can be seen as a better approximation of human learning where we only need a few examples of a hearing new word to be able to recognize it.
 
