@@ -19,18 +19,18 @@ Overall, meta-learning has the potential to improve the performance and efficien
 ### What is the history of meta-learning?
 The concept of meta-learning has been around for several decades, but it was only in recent years with the advent of deep learning and big data that it gained significant attention from the research community. Here is a brief history of meta-learning:
 
-Early work: The idea of meta-learning can be traced back to the 1980s, with the development of approaches such as "Evolutionary principles in self-referential learning. (On learning how to learn: The meta-meta-... hook.)" Juergen Schidhuber's thesis. These approaches focused on building models that could learn how to learn from previous experience and apply that knowledge to new tasks.
+Early work: The idea of meta-learning can be traced back to the 1980s, with the development of approaches such as "Evolutionary principles in self-referential learning. (On learning how to learn: The meta-meta-... hook.)" Juergen Schidhuber's thesis. These early approaches focused on building models that could learn how to learn from previous experience and apply that knowledge to new tasks.
 
-The rise of deep learning: With the advent of deep learning in the 2010s, there was renewed interest in meta-learning as a way to improve the performance and efficiency of deep learning models. Researchers began exploring new techniques such as "meta-learning with neural networks" and "model-agnostic meta-learning".
+The rise of deep learning: With the later advent of deep learning, there was renewed interest in meta-learning as a way to improve the performance and efficiency of deep learning models. Researchers began exploring new techniques such as "meta-learning with neural networks" and "model-agnostic meta-learning".
 
-Current state of research: Today, meta-learning is a thriving area of research in machine learning, with researchers exploring a wide range of techniques and applications. Some of the most promising areas of research include few-shot learning, where models are trained to quickly adapt to new tasks with only a few examples, and continual learning, where models are trained to learn continuously over time.
+Current state of research: Today, meta-learning is a thriving area of research in machine learning, with researchers exploring a wide range of techniques and applications. The field of research is growing from on the scale of 1,000 publications between 2000 and 2010, to the scale of 10,000 publications between 2010 and 2020, with already ~23,000 publications from 2020 to 2023. Some of the most promising areas of research include few-shot learning, where models are trained to quickly adapt to new tasks with only a few examples, and continual learning, where models are trained to learn continuously over time.
 
 Overall, the history of meta-learning reflects a continued interest in developing models that can learn from previous experiences and apply that knowledge to new tasks, with the goal of improving the performance and efficiency of machine learning algorithms.
 
 ### What is Model-Agnostic Meta-Learning?
 Model-Agnostic Meta-Learning (MAML) is a popular approach to meta-learning in deep learning, introduced by Finn et al. in 2017. MAML is a framework for learning a good initialization of the parameters of a neural network, such that it can quickly adapt to new tasks with only a few examples.
 
-The main idea behind MAML is to learn a set of model parameters that can be easily fine-tuned for new tasks. In MAML, this is achieved by training a model on a set of tasks, and then using the gradients of the model's parameters with respect to the loss on the training set of each task to update the model's parameters. This allows the model to quickly adapt to new tasks by updating the parameters based on only a few examples.
+The main idea behind MAML is to learn a set of model parameters that can be easily fine-tuned for new tasks. In MAML, this is achieved by training a model on a set of tasks, and then using the gradients of the model's parameters with respect to the loss on the test set of each task to update the model's parameters. This allows the model to quickly adapt to new tasks by updating the parameters based on only a few examples.
 
 The MAML algorithm can be summarized as follows:
 
@@ -38,7 +38,7 @@ The MAML algorithm can be summarized as follows:
 2. For each training task, compute the gradient of the loss with respect to the model parameters on the training set.
 3. Use the gradient to update the model parameters.
 4. Test the updated model on a validation set for each task.
-5. Compute the average loss across all tasks on the validation set.
+5. Compute the average loss across all tasks on their validation sets.
 6. Use the gradient of the average loss with respect to the initial parameters to update the initial parameters.
 7. Repeat steps 2-6 for a fixed number of iterations.
 
