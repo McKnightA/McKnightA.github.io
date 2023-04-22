@@ -85,10 +85,10 @@ For the locomotion task, the goals were to train an agents to control the moveme
 The performance of MAML was compared to three baseline models: pretraining one policy on all of the tasks and then fine-tuning, training a policy from randomly initialized weights, and an oracle policy which receives the parameters of the task as input. Each model was a neural network policy with two hidden layers of size 100, with ReLU nonlinearities.
 
 ## Results
-### What are the results from the regression task evaluation?
-The authors reported that MAML achieved significantly lower MSE compared to the baseline algorithms. They also showed that MAML was able to learn a good initialization that could be fine-tuned quickly to new regression tasks with only a few input-output pairs. Overall, these results demonstrated that MAML was effective in adapting quickly to new regression problems with limited data. 
+### What were the results from the regression task evaluation?
+The authors reported that MAML achieved significantly lower MSE compared to the baseline algorithms. They also showed that MAML was able to learn a good initialization that could be fine-tuned quickly to new regression tasks with only a five input-output pairs. Overall, these results demonstrated that MAML was effective in adapting quickly to new regression problems with limited data. ![Quantitative sinusoid regression results showing the learning curve at meta test-time. Note that MAML continues to improve with additional gradient steps without overfitting to the extremely small dataset during meta-testing, achieving a loss that is substantially lower than the baseline fine-tuning approach.](./figures/figure 3.png "regression results")
 
-### What are the results from the classification task evaluation?
+### What were the results from the classification task evaluation?
 MAML was evaluated on a classification task using the Omniglot dataset, which consists of 1623 different handwritten characters from 50 different alphabets. During meta-training, MAML was trained on a set of classification tasks, each corresponding to a different subset of characters from the Omniglot dataset. During meta-testing, MAML was tested on new classification tasks with different subsets of characters, where it was fine-tuned on a few examples from each class and evaluated on its ability to classify new examples correctly. The performance of MAML was measured using the mean classification accuracy metric. It was compared to many different meta learning techniques from prior literature. These prior techniques include MANN (no conv), siamese nets, matching nets, neural statistician, and memory modules. 
 
 Omniglot (Lake et al., 2011) 1-shot 5-shot 1-shot 5-shot
@@ -107,6 +107,8 @@ MAML	48.7	1.84	63.1	0.92
 Matching Networks	43.6	0.78	55.3	0.69
 Prototypical Networks	49.4	0.78	68.2	0.66
 Relation Networks	50.4	0.82	65.3	0.70
+
+### What were the results from the reinforcement learning task evaluation?
 
 ## Discussion
 
