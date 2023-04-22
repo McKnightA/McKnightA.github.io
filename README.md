@@ -69,7 +69,7 @@ The performance of MAML was evaluated by comparing it to couple baseline algorit
 ### How was MAML evaluated for classification tasks?
 MAML was evaluated on classification tasks using two different datasets: Omniglot and mini-ImageNet.
 
-For the Omniglot dataset, the goal was to classify images of handwritten characters from a large number of alphabets. During training, MAML was trained on a set of tasks, each corresponding to a different classification problem on a subset of the alphabets. During meta-testing, MAML was tested on a set of new classification problems, where it was fine-tuned on a small number of examples from each new class and evaluated on its ability to classify new images from those classes. The performance of MAML was measured using the classification accuracy metric, which measures the percentage of correctly classified images.
+For the Omniglot dataset, which consists of 1623 different handwritten characters from 50 different alphabets, the goal was to classify images of handwritten characters. During meta-training, MAML was trained on a set of classification tasks, each corresponding to a different subset of characters from the dataset. During meta-testing, MAML was tested on new classification tasks with different subsets of characters, where it was fine-tuned on a few examples from each class and evaluated on its ability to classify new examples from those classes. The performance of MAML was measured using the classification accuracy metric, which measures the percentage of correctly classified images.
 
 For the mini-ImageNet dataset, the goal was to classify images of objects from 100 different classes. Similar to the Omniglot experiment, MAML was trained on a set of tasks, each corresponding to a different subset of the 100 classes. During meta-testing, MAML was tested on new classification problems, where it was fine-tuned on a small number of examples from each new class and evaluated on its ability to classify new images from those classes. The performance of MAML was also measured using the classification accuracy metric.
 
@@ -91,13 +91,18 @@ The authors reported that MAML achieved significantly lower MSE compared to the 
 ![Quantitative sinusoid regression results showing the learning curve at meta test-time. Note that MAML continues to improve with additional gradient steps without overfitting to the extremely small dataset during meta-testing, achieving a loss that is substantially lower than the baseline fine-tuning approach.](./figures/figure 3.png "regression results")
 
 ### What were the results from the classification task evaluation?
-MAML was evaluated on a classification task using the Omniglot dataset, which consists of 1623 different handwritten characters from 50 different alphabets. During meta-training, MAML was trained on a set of classification tasks, each corresponding to a different subset of characters from the Omniglot dataset. During meta-testing, MAML was tested on new classification tasks with different subsets of characters, where it was fine-tuned on a few examples from each class and evaluated on its ability to classify new examples correctly. The performance of MAML was measured using the mean classification accuracy metric. It was compared to many different meta learning techniques from prior literature. 
-
-MAML was also evaluated on the mini-ImageNet dataset, which consists of 100 classes from the larger ImageNet dataset. During meta-training, MAML was trained on a set of classification tasks, each corresponding to a different subset of classes from the mini-ImageNet dataset. During meta-testing, MAML was tested on new classification tasks with different subsets of classes, where it was fine-tuned on a few examples from each class and evaluated on its ability to classify new examples correctly. The authors reported the mean classification accuracy.
+MAML was evaluated on a classification task using the Omniglot dataset and the mini-ImageNet dataset. The performance was measured using the mean classification accuracy metric. It was compared to many different meta learning techniques from prior literature. 
 
 ![Few-shot classification on held-out Omniglot characters (top) and the MiniImagenet test set (bottom). MAML achieves results that are comparable to or outperform state-of-the-art convolutional and recurrent models. Siamese nets, matching nets, and the memory module approaches are all specific to classification, and are not directly applicable to regression or RL scenarios. The ± shows 95% confidence intervals over tasks. Note that the Omniglot results may not be strictly comparable since the train/test splits used in the prior work were not available. The MiniImagenet evaluation of baseline methods and matching networks is from Ravi & Larochelle (2017).](./figures/table 1.png "classification results")
 
+The data shows that the MAML algorithm achieves better few shot accuracy on all classification tasks that were measured than all prior meta learning techniuques included in the study.
+
 ### What were the results from the reinforcement learning task evaluation?
+For the 2D navigation task, 
+![Top: quantitative results from 2D navigation task, Bottom: qualitative comparison between model learned with MAML and with fine-tuning from a pretrained network.](./figures/figure 4.png "2D navigation results")
+
+![Reinforcement learning results for the half-cheetah and ant locomotion tasks, with the tasks shown on the far right. Each gradient step requires additional samples from the environment, unlike the supervised learning tasks. The results show that MAML can adapt to new goal velocities and directions substantially faster than conventional pretraining or random initialization, achieving good performs in just two or three gradient steps. We exclude the goal velocity, random baseline curves, since the returns are much worse (< −200 for cheetah and < −25 for ant).](./figures/figure 5.png "locomotion results")
+
 
 ## Discussion
 
