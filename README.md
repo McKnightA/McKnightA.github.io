@@ -97,14 +97,15 @@ MAML was evaluated on a classification task using the Omniglot dataset and the m
 
 ### What were the results from the reinforcement learning task evaluation?
 For the 2D navigation task, MAML demonstrated superior performance to the baseline training algorithms. The model that was trained with MAML managed to both improve in terms of average term and in number of graident updates needed to achieve better results. 
+
 ![Top: quantitative results from 2D navigation task, Bottom: qualitative comparison between model learned with MAML and with fine-tuning from a pretrained network.](./figures/figure 4.png "2D navigation results")
 
 For the locomotion task, MAML once again outperforms the baseline methods. On three of the four tasks the model trained with MAML achieves nearly the same result as the Oracle model, which is the upper bound on performance.
+
 ![Reinforcement learning results for the half-cheetah and ant locomotion tasks, with the tasks shown on the far right. Each gradient step requires additional samples from the environment, unlike the supervised learning tasks. The results show that MAML can adapt to new goal velocities and directions substantially faster than conventional pretraining or random initialization, achieving good performs in just two or three gradient steps. We exclude the goal velocity, random baseline curves, since the returns are much worse (< −200 for cheetah and < −25 for ant).](./figures/figure 5.png "locomotion results")
 
-
 ## Discussion
-
+One point of interest is in the results of the miniImagenet classification. There's an model trained with a first order approximation of MAML. This approximation takes the form of an identity matrix that replaces the Hessian in the meta loss gradient calculation. It was tested as a way to speed up calculation, and it achieved that goal by reducing computation time by about 33%. The authors expected this to reduce performance, but the data didn't match that expectation. The approximation performed on par with the standard implementation. The authors hypothesize that their use of the ReLU activation function in their networks has something to do with that due to ReLU's locally almost linear. This property suggests that second derivatives may be close to zero in most cases. It would be intersting to see if the approximation still performs on par if an alternative activation function, with a non-zero second derivative, like SiLU were used in the model.
 
 ## Conclusion
 
