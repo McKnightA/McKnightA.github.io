@@ -96,13 +96,15 @@ MAML was evaluated on a classification task using the Omniglot dataset and the m
 ![Few-shot classification on held-out Omniglot characters (top) and the MiniImagenet test set (bottom). MAML achieves results that are comparable to or outperform state-of-the-art convolutional and recurrent models. Siamese nets, matching nets, and the memory module approaches are all specific to classification, and are not directly applicable to regression or RL scenarios. The ± shows 95% confidence intervals over tasks. Note that the Omniglot results may not be strictly comparable since the train/test splits used in the prior work were not available. The MiniImagenet evaluation of baseline methods and matching networks is from Ravi & Larochelle (2017).](./figures/table 1.png "classification results")
 
 ### What were the results from the reinforcement learning task evaluation?
-For the 2D navigation task, 
+For the 2D navigation task, MAML demonstrated superior performance to the baseline training algorithms. The model that was trained with MAML managed to both improve in terms of average term and in number of graident updates needed to achieve better results. 
 ![Top: quantitative results from 2D navigation task, Bottom: qualitative comparison between model learned with MAML and with fine-tuning from a pretrained network.](./figures/figure 4.png "2D navigation results")
 
+For the locomotion task, MAML once again outperforms the baseline methods. On three of the four tasks the model trained with MAML achieves nearly the same result as the Oracle model, which is the upper bound on performance.
 ![Reinforcement learning results for the half-cheetah and ant locomotion tasks, with the tasks shown on the far right. Each gradient step requires additional samples from the environment, unlike the supervised learning tasks. The results show that MAML can adapt to new goal velocities and directions substantially faster than conventional pretraining or random initialization, achieving good performs in just two or three gradient steps. We exclude the goal velocity, random baseline curves, since the returns are much worse (< −200 for cheetah and < −25 for ant).](./figures/figure 5.png "locomotion results")
 
 
 ## Discussion
+
 
 ## Conclusion
 
